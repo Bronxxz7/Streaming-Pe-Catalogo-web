@@ -1,0 +1,1623 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BRONXX CUB</title>
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Fondo (opcional, se estiliza en CSS) -->
+  <div class="bg">
+    <div class="stars"></div>
+    <div class="vignette"></div>
+    <div class="gridGlow"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <!-- ✅ TU LOGO -->
+        <img src="img/LOGITO WASAPI.jpeg" alt="Logo" />
+      </div>
+
+      <div class="brandText">
+        <strong>CATÁLOGO</strong> <span class="accent">BRONXX CUB</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="pill" type="button" title="Moneda">
+        <span class="pillDot"></span>
+        <span>S/</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- =========================================================
+         HOME / CATEGORÍAS (6 cuadros)
+         ========================================================= -->
+    <section id="home" class="hero">
+      <div class="heroLogo pulse">
+        <img class="heroImg" src="img/LOGITO WASAPI.jpeg" alt="Logo principal" />
+      </div>
+
+      <h1 class="title">BRONXX <span class="accent">CUB</span></h1>
+      <p class="subtitle">Elige tu servicio, revisa beneficios y arma tu combo con descuento.</p>
+      <div class="divider"></div>
+
+      <!-- GRID CATEGORÍAS -->
+      <section class="categoryGrid" aria-label="Categorías">
+
+        <!-- STREAMING -->
+        <button class="catCard" type="button" data-go="streaming">
+          <div class="catBg">
+            <!-- ✅ IMAGEN DE CATEGORÍA -->
+            <img src="img/Netflix-en-una-Smart-TV.jpg" alt="Streaming" />
+          </div>
+          <div class="catOverlay"></div>
+          <div class="catContent">
+            <h3>STREAMING</h3>
+            <p>Netflix, Disney+, HBO, Prime y más.</p>
+          </div>
+          <div class="catBar" style="background:#ff000f;"></div>
+        </button>
+
+        <!-- MÚSICA -->
+        <button class="catCard" type="button" data-go="musica">
+          <div class="catBg">
+            <img src="img/SPOTIIFY.JPG" alt="Música" />
+          </div>
+          <div class="catOverlay"></div>
+          <div class="catContent">
+            <h3>MÚSICA</h3>
+            <p>Spotify, Apple Music, Tidal y más.</p>
+          </div>
+          <div class="catBar" style="background:#37ff8b;"></div>
+        </button>
+
+        <!-- APPS PREMIUM -->
+        <button class="catCard" type="button" data-go="apps">
+          <div class="catBg">
+            <img src="img/logo cap.jpeg" alt="Apps Premium" />
+          </div>
+          <div class="catOverlay"></div>
+          <div class="catContent">
+            <h3>APPS PREMIUM</h3>
+            <p>ChatGPT, CapCut, Duolingo y más.</p>
+          </div>
+          <div class="catBar" style="background:#b000ff;"></div>
+        </button>
+
+        <!-- SERVICIOS WEB -->
+        <button class="catCard" type="button" data-go="web">
+          <div class="catBg">
+            <img src="img/logo canva.jpeg" alt="Servicios Web" />
+          </div>
+          <div class="catOverlay"></div>
+          <div class="catContent">
+            <h3>SERVICIOS WEB</h3>
+            <p>Canva, Google One, Gemini y más.</p>
+          </div>
+          <div class="catBar" style="background:#21e9ff;"></div>
+        </button>
+
+        <!-- VIDEOJUEGOS -->
+        <button class="catCard" type="button" data-go="videojuegos">
+          <div class="catBg">
+            <img src="img/logo xbox.jpeg" alt="Videojuegos" />
+          </div>
+          <div class="catOverlay"></div>
+          <div class="catContent">
+            <h3>VIDEOJUEGOS</h3>
+            <p>Roblox, Xbox Game Pass y más.</p>
+          </div>
+          <div class="catBar" style="background:#37ff8b;"></div>
+        </button>
+
+        <!-- WINDOWS -->
+        <button class="catCard" type="button" data-go="windows">
+          <div class="catBg">
+            <img src="img/windosss.webp" alt="Windows" />
+          </div>
+          <div class="catOverlay"></div>
+          <div class="catContent">
+            <h3>WINDOWS</h3>
+            <p>Licencias, antivirus, drivers y más.</p>
+          </div>
+          <div class="catBar" style="background:#0078ff;"></div>
+        </button>
+        
+      </section>
+            <!-- =========================
+           BENEFICIOS (HOME)
+      ========================= -->
+      <section class="homeExtras" style="margin-top:100px;">
+
+        <div class="benefitsGrid">
+
+          <article class="benefitCard">
+            <div class="benefitIcon">🛡️</div>
+            <h3>Cuenta Segura</h3>
+            <p>Cuentas sin caidas y totalmente renovables para que sigas usando el mismo correo.</p>
+          </article>
+
+          <article class="benefitCard">
+            <div class="benefitIcon">⚡</div>
+            <h3>Entrega Rápida</h3>
+            <p>Recibe tu cuenta en minutos dentro de nuestro horario.</p>
+          </article>
+
+          <article class="benefitCard">
+            <div class="benefitIcon">🎧</div>
+            <h3>Soporte Dedicado</h3>
+            <p>Atención personalizada vía WhatsApp para ayudarte siempre.</p>
+          </article>
+
+        </div>
+
+        <!-- =========================
+             FAQ (HOME)
+        ========================= -->
+        <section class="faqWrap" aria-label="Preguntas frecuentes" style="margin-top:100px;">
+
+          <h2 class="faqTitle">
+            PREGUNTAS FRECUENTES <span>❓</span>
+          </h2>
+
+          <div class="faqGrid">
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Cuánto tiempo tarda en llegar mi pedido?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Normalmente se entrega en minutos dentro del horario de atención.
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Cómo recibo mi producto?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Una vez confirmado el pago, recibirás los datos de acceso (usuario y contraseña) 
+                o tu licencia digital directamente a tu WhatsApp o correo electrónico registrado.
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Qué métodos de pago aceptan?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Aceptamos Yape, Plin y Binance (según disponibilidad).
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Qué es una cuenta completa?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Es una cuenta con acceso total según el servicio. 
+                Puede variar dependiendo del producto y plan seleccionado.
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Qué hago si mi cuenta deja de funcionar?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Escríbenos por WhatsApp y te brindamos soporte o reemplazo según la garantía.
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Ofrecen precios para revendedores?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Sí, contamos con precios especiales para revendedores. 
+                Contáctanos por WhatsApp para más información.
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿El perfil para cuántos dispositivos es?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Depende del servicio y plan elegido. 
+                Puedes revisar los detalles dentro de cada producto.
+              </div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqQ" type="button">
+                ¿Cómo puedo renovar mi servicio?
+                <span class="faqPlus">+</span>
+              </button>
+              <div class="faqA">
+                Puedes escribirnos antes del vencimiento o te avisaremos para que renueves a tiempo.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="payPill" style="margin-top:40px;">
+            💳 <span>Manejamos métodos de pago como:</span>
+            <strong>YAPE / PLIN / BINANCE</strong>
+          </div>
+
+        </section>
+
+      </section>
+
+    </section>
+
+<!-- =========================
+     MODAL ELEGIR PROVEEDOR (COMPRA INDIVIDUAL)
+========================= -->
+<div id="providerModal" class="modal" aria-hidden="true">
+  <div class="modalCard" role="dialog" aria-modal="true" aria-label="Elegir proveedor">
+
+    <div class="modalHead">
+      <h3>👤 ELIGE TU PROVEEDOR</h3>
+      <button id="closeProvider" class="closeX" type="button">×</button>
+    </div>
+
+    <div class="modalBody">
+      <div class="smallNote">
+        Selecciona quién te atenderá para continuar con tu compra.
+      </div>
+
+      <div class="provider" style="margin-top:0;">
+        <div>
+          <strong style="color:#fff">Proveedor</strong>
+          <div style="color:var(--muted); font-size:13px;">BRONXX o KAIRO</div>
+        </div>
+
+        <select id="providerSelectSingle">
+          <option value="" selected>Elegir…</option>
+          <option value="BRONXX">BRONXX</option>
+          <option value="KAIRO">KAIRO</option>
+        </select>
+      </div>
+
+      <button id="confirmBuyBtn" class="whBtn" type="button" style="margin-top:14px;">
+        🟢 Continuar a WhatsApp
+      </button>
+    </div>
+
+  </div>
+</div>
+
+    <!-- =========================================================
+         PÁGINA DE SECCIÓN (se muestra/oculta con JS)
+         ========================================================= -->
+    <section id="sectionPage" class="sectionPage hidden">
+
+  <!-- top: volver -->
+  <div class="sectionTop">
+    <button class="backBtn" id="backHome" type="button">← Volver</button>
+
+    <div class="rightTop">
+      <button class="moneyPill" type="button">S/</button>
+    </div>
+  </div>
+
+  <!-- hero de sección -->
+  <div class="sectionHero">
+    <h1 id="sectionTitle">STREAMING</h1>
+    <div class="line" id="sectionLine"></div>
+    <p id="sectionDesc">Las mejores películas, series y TV en vivo. Garantía total.</p>
+
+    <div class="searchWrap">
+      <span class="icon">🔎</span>
+      <input id="searchInput" placeholder="Buscar servicio (Ej: Netflix, HBO...)" />
+    </div>
+  </div>
+
+  <!-- ✅ GRID STREAMING -->
+  <div class="productsGrid" data-grid="streaming">
+    <!-- NETFLIX -->
+    <article class="pCard"
+      data-id="st_netflix"
+      data-name="Netflix Premium"
+      data-price="13"
+      data-category="streaming"
+      data-color="#e50914">
+
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+        <select class="planSelect" aria-label="Plan Netflix">
+          <option value="15" selected>CON PIN</option>
+          <option value="13">SIN PIN</option>
+        </select>
+      </div>
+
+      <div class="pImg">
+        <img src="img/logo net.png" alt="Netflix" />
+      </div>
+
+      <div class="pBody">
+        <div class="pName">Netflix Premium</div>
+        <div class="pPrice">S/ 13.00</div>
+        <div class="pMeta">1 Mes | 1 Perfil Personal. Sin anuncios.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge no">❌ SIN STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+
+      <div class="pBar" style="background:#e50914;"></div>
+    </article>
+
+    <!-- HBO MAX -->
+    <article class="pCard"
+      data-id="st_max"
+      data-name="MAX (HBO)"
+      data-price="10"
+      data-category="streaming"
+      data-color="#1d7bff">
+
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+        <select class="planSelect" aria-label="Plan Max">
+          <option value="10" selected>Platino (4K)</option>
+          <option value="8">Estándar</option>
+        </select>
+      </div>
+
+      <div class="pImg">
+        <img src="img/HBO.jpeg" alt="Max" />
+      </div>
+
+      <div class="pBody">
+        <div class="pName">MAX (HBO)</div>
+        <div class="pPrice">S/ 10.00</div>
+        <div class="pMeta">1 Mes | 1 Perfil Personal. Excelente estabilidad.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+
+      <div class="pBar" style="background:#003886;"></div>
+    </article>
+
+    <!-- DISNEY+ -->
+    <article class="pCard"
+      data-id="st_disney"
+      data-name="Disney+ Premium"
+      data-price="10"
+      data-category="streaming"
+      data-color="#113ccf">
+
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+        <select class="planSelect" aria-label="Plan Disney+">
+          <option value="10" selected>Premium</option>
+        </select>
+      </div>
+
+      <div class="pImg">
+        <img src="img/logo dis.jpeg" alt="Disney+" />
+      </div>
+
+      <div class="pBody">
+        <div class="pName">Disney+ Premium</div>
+        <div class="pPrice">S/ 10.00</div>
+        <div class="pMeta">1 Mes | 1 Perfil Personal. Incluye ESPN/Hulu según plan.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+
+      <div class="pBar" style="background:#2a59f3;"></div>
+    </article>
+
+     <!-- crunchy roll -->
+    <article class="pCard"
+      data-id="st_CRUNCH"
+      data-name="Crunchyroll Mega Fan"
+      data-price="6"
+      data-category="streaming"
+      data-color="#1d7bff">
+
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+        <select class="planSelect" aria-label="Plan Max">
+          <option value="6" selected>Mega Fan</option>
+        </select>
+      </div>
+
+      <div class="pImg">
+        <img src="img/logo crun.jpeg" alt="Crunchyroll" />
+      </div>
+
+      <div class="pBody">
+        <div class="pName">Crunchyroll</div>
+        <div class="pPrice">S/ 6.00</div>
+        <div class="pMeta">1 Mes | 1 Perfil Personal. Excelente estabilidad.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+
+      <div class="pBar" style="background:#f6770f;"></div>
+    </article>
+ <!-- PRIME VIDEO -->
+    <article class="pCard"
+  data-id="st_prime"
+  data-name="Prime Video"
+  data-price="8"
+  data-category="streaming"
+  data-color="#00A8E1">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Prime Video">
+      <option value="8" selected>Premium</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/PRIMEVIDEO.jpg" alt="Prime Video" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Prime Video</div>
+    <div class="pPrice">S/ 8.00</div>
+    <div class="pMeta">1 Mes | 1 Perfil Personal. Excelente calidad HD.</div>
+    <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#033545;"></div>
+</article>
+<!-- Paramount -->
+<article class="pCard"
+  data-id="st_paramount"
+  data-name="Paramount+"
+  data-price="8"
+  data-category="streaming"
+  data-color="#0064FF">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Paramount+">
+      <option value="8" selected>Premium </option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/paramount.png" alt="Paramount+" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Paramount+</div>
+    <div class="pPrice">S/ 8.00</div>
+    <div class="pMeta">1 Mes | 1 Perfil Personal. Series y películas exclusivas.</div>
+    <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#0064FF;"></div>
+</article>
+<!-- IPTV -->
+ <article class="pCard"
+  data-id="st_iptv"
+  data-name="IPTV Premium"
+  data-price="14"
+  data-category="streaming"
+  data-color="#ff8c00">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan IPTV">
+      <option value="14" selected>Estandar</option>
+      <option value="20">Premiun</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/iptv.jpeg" alt="IPTV" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">IPTV Premium</div>
+    <div class="pPrice">S/ 14.00</div>
+    <div class="pMeta">
+      +1000 canales | Deportes | Películas | Series | TV en vivo. Cuenta con PRIME VIDEO HBO DISNEY Y NETFLIX
+    </div>
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#970ff3;"></div>
+</article>
+<!-- DIRECTV GO -->
+<article class="pCard"
+  data-id="st_directv"
+  data-name="DIRECTV GO"
+  data-price="25"
+  data-category="streaming"
+  data-color="#0033A0">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan DIRECTV GO">
+      <option value="25" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/DIRECTV GO.jpeg" alt="DIRECTV GO" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">DIRECTV GO</div>
+    <div class="pPrice">S/ 25.00</div>
+    <div class="pMeta">TV en vivo | Liga 1 MAX | Canales premium.</div>
+    <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#0033A0;"></div>
+</article>
+  <!-- APPLE TV+ -->
+<article class="pCard"
+  data-id="st_appletv"
+  data-name="Apple TV+"
+  data-price="9"
+  data-category="streaming"
+  data-color="#ffffff">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Apple TV+">
+      <option value="9" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/APPLE TV.jpeg" alt="Apple TV+" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Apple TV+</div>
+    <div class="pPrice">S/ 9.00</div>
+    <div class="pMeta">Series y películas exclusivas Apple Originals.</div>
+    <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#ffffff;"></div>
+</article>
+<!-- VIX PREMIUM -->
+<article class="pCard"
+  data-id="st_vix"
+  data-name="VIX Premium"
+  data-price="6"
+  data-category="streaming"
+  data-color="#FF6A00">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan VIX Premium">
+      <option value="26" selected>6 Meses</option>
+      <option value="6" selected>1 Mes </option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/VIX.jpeg" alt="VIX Premium" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">VIX Premium</div>
+    <div class="pPrice">S/ 6.00</div>
+    <div class="pMeta">Novelas, series y contenido en español.</div>
+    <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#FF6A00;"></div>
+</article>
+
+<!-- VIKI PASS -->
+
+<article class="pCard"
+  data-id="st_viki"
+  data-name="Viki Pass"
+  data-price="8"
+  data-category="streaming"
+  data-color="#00C4CC">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Viki Pass">
+      <option value="8" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/viki.jpeg" alt="Viki Pass" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Viki Pass</div>
+    <div class="pPrice">S/ 8.00</div>
+    <div class="pMeta">Dramas coreanos, asiáticos y contenido exclusivo sin anuncios.</div>
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#00C4CC;"></div>
+</article>
+<!-- OLEADA TV -->
+<article class="pCard"
+  data-id="st_oleadatv"
+  data-name="OLEADA TV"
+  data-price="12"
+  data-category="streaming"
+  data-color="#ff0033">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Flujo TV">
+      <option value="12" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/OLEADAA TV.png" alt="Flujo TV" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Oleada TV</div>
+    <div class="pPrice">S/ 12.00</div>
+    <div class="pMeta">Canales en vivo, deportes, películas y contenido internacional (UN MAGIS TV RENOVADO).</div>
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+    <div class="badge no" data-stock="1">❌ SIN STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#0ac2ff;"></div>
+</article>
+<article class="pCard" data-id="mu_youtube" data-name="youtube" data-price="11" data-category="musica">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan youtube premium">
+          <option value="11" selected>Premium</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/youtube.png" alt="Apple Music"></div>
+      <div class="pBody">
+        <div class="pName">Youtube Premiun</div>
+        <div class="pPrice">S/ 11.00</div>
+        <div class="pMeta">1 Mes | 1 cuenta.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#ffffff;"></div>
+    </article>
+  </div>
+
+  <!-- ✅ GRID MÚSICA -->
+  <div class="productsGrid hidden" data-grid="musica">
+
+    <article class="pCard" data-id="mu_spotify" data-name="Spotify" data-price="12" data-category="musica">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan Spotify">
+          <option value="12" selected>Premium</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/SPOTIIFY.JPG" alt="Spotify"></div>
+      <div class="pBody">
+        <div class="pName">Spotify</div>
+        <div class="pPrice">S/ 12.00</div>
+        <div class="pMeta">1 Mes | 1 cuenta. | Renovable </div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#1db954;"></div>
+    </article>
+
+    <article class="pCard" data-id="mu_applemusic" data-name="Apple Music" data-price="12" data-category="musica">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan Apple Music">
+          <option value="12" selected>Premium</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/apple music.png" alt="Apple Music"></div>
+      <div class="pBody">
+        <div class="pName">Apple Music</div>
+        <div class="pPrice">S/ 12.00</div>
+        <div class="pMeta">1 Mes | 1 cuenta.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#ffffff;"></div>
+    </article>
+
+    <article class="pCard" data-id="mu_tidal" data-name="Tidal" data-price="11" data-category="musica">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan Tidal">
+          <option value="11" selected>HiFi</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/tidal.jpeg" alt="Tidal"></div>
+      <div class="pBody">
+        <div class="pName">Tidal</div>
+        <div class="pPrice">S/ 11.00</div>
+        <div class="pMeta">1 Mes | 1 cuenta.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#00f5ff;"></div>
+    </article>
+
+    <article class="pCard" data-id="mu_youtube" data-name="youtube" data-price="11" data-category="musica">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan youtube premium">
+          <option value="11" selected>Premium</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/youtube.png" alt="Apple Music"></div>
+      <div class="pBody">
+        <div class="pName">Youtube Premiun</div>
+        <div class="pPrice">S/ 11.00</div>
+        <div class="pMeta">1 Mes | 1 cuenta.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#ffffff;"></div>
+    </article>
+    <!-- DEEZER PREMIUM -->
+<article class="pCard"
+  data-id="mu_deezer"
+  data-name="Deezer Premium"
+  data-price="14"
+  data-category="musica"
+  data-color="#FF2E6D">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Deezer Premium">
+      <option value="14">3 Meses</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/dezzer.png" alt="Deezer Premium" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Deezer Premium</div>
+    <div class="pPrice">S/ 14.00</div>
+    <div class="pMeta">
+      Música sin anuncios | Descargas offline | Audio en alta calidad.
+    </div>
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#FF2E6D;"></div>
+</article>
+
+  </div>
+  
+
+  <!-- ✅ GRID APPS -->
+  <div class="productsGrid hidden" data-grid="apps">
+    <article class="pCard" data-id="ap_chatgpt" data-name="ChatGPT Pro" data-price="9" data-category="apps">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan ChatGPT">
+          <option value="16" selected>PRO</option>
+          <option value="9" selected>APK</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/chat gpt pro.png" alt="ChatGPT"></div>
+      <div class="pBody">   
+        <div class="pName">ChatGPT Pro</div>
+        <div class="pPrice">S/ 9.00</div>   
+        <div class="pMeta">1 Mes | La mejor version de Chat gpt Premium.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#b000ff;"></div>
+    </article>
+
+    <article class="pCard" data-id="ap_capcut" data-name="CapCut Pro" data-price="8" data-category="apps">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan CapCut">
+          <option value="8" selected>APK</option>
+          
+        </select>
+      </div>
+      <div class="pImg"><img src="img/capcut.png" alt="CapCut"></div>
+      <div class="pBody">
+        <div class="pName">CapCut Pro</div>
+        <div class="pPrice">S/ 8.00</div>
+        <div class="pMeta">1 Mes | Edición pro.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#b000ff;"></div>
+    </article>
+
+    <article class="pCard" data-id="ap_duolingo" data-name="Duolingo Super" data-price="8" data-category="apps">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan Duolingo">
+          <option value="8" selected>Super</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/duolingo.png" alt="Duolingo"></div>
+      <div class="pBody">
+        <div class="pName">Duolingo Super</div>
+        <div class="pPrice">S/ 8.00</div>
+        <div class="pMeta">1 sola compra | Sin anuncios.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#b000ff;"></div>
+    </article>
+    <!-- PERPLEXITY PRO -->
+<article class="pCard"
+  data-id="ap_perplexity"
+  data-name="Perplexity Pro"
+  data-price="7"
+  data-category="apps"
+  data-color="#2b7fff">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Perplexity Pro">
+      <option value="7" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/perplexiti.jpeg" alt="Perplexity Pro" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Perplexity Pro</div>
+    <div class="pPrice">S/ 7.00</div>
+    <div class="pMeta">
+      Búsqueda con IA avanzada | Respuestas rápidas y precisas.
+    </div>
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar
+ </div>
+
+  <div class="pBar" style="background:#2b7fff;"></div>
+</article>
+<!-- DRAMA BOX -->
+<article class="pCard"
+  data-id="st_dramabox"
+  data-name="DramaBox"
+  data-price="8"
+  data-category="apps"
+  data-color="#ff3c7a">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan DramaBox">
+      <option value="8" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/drama box.jpeg" alt="DramaBox" />
+  </div>
+
+  <div class="pBody">
+    <div class="pName">DramaBox</div>
+    <div class="pPrice">S/ 8.00</div>
+    <div class="pMeta">
+      Series cortas, dramas exclusivos y contenido premium.
+    </div>
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#ff3c7a;"></div>
+</article>
+
+  </div>
+
+  <!-- ✅ GRID WEB -->
+  <div class="productsGrid hidden" data-grid="web">
+<!-- CANVA PRO -->
+<article class="pCard"
+  data-id="web_canva"
+  data-name="Canva Pro"
+  data-price="4"
+  data-category="web"
+  data-color="#00C4CC">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Canva Pro">
+      <option value="4" selected>1 Mes</option>
+      <option value="6">3 Meses</option>
+      <option value="10">6 Meses</option>
+      <option value="15">1 Año</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/CANVA.jpeg" alt="Canva Pro">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Canva Pro</div>
+    <div class="pPrice">S/ 4.00</div>
+    <div class="pMeta">
+      Plantillas premium, eliminación de fondo y herramientas avanzadas.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#00C4CC;"></div>
+</article>
+<!-- GOOGLE ONE 2TB -->
+<article class="pCard"
+  data-id="web_googleone2tb"
+  data-name="Google One 2TB"
+  data-price="8"
+  data-category="web"
+  data-color="#4285F4">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Google One 2TB">
+      <option value="50" selected>1 Año</option>
+      <option value="30" selected>6 Meses</option>
+      <option value="15" selected>3 Meses</option>
+      <option value="8" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/GOOGLE ONE.jpeg" alt="Google One 2TB">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Google One 2TB</div>
+    <div class="pPrice">S/ 8.00</div>
+    <div class="pMeta">
+      2TB de almacenamiento en la nube | Drive, Gmail y Google Fotos ampliados.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#4285F4;"></div>
+</article>
+<article class="pCard" data-id="ap_chatgpt" data-name="ChatGPT Pro" data-price="16" data-category="apps">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan ChatGPT">
+          <option value="9" selected>APK</option>
+          <option value="16" selected>PRO</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/chat gpt pro.png" alt="ChatGPT"></div>
+      <div class="pBody">   
+        <div class="pName">ChatGPT Pro</div>
+        <div class="pPrice">S/ 16.00</div>
+        <div class="pMeta">1 Mes | La mejor version de Chat gpt Premium.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#b000ff;"></div>
+    </article>
+    
+     <article class="pCard" data-id="ap_capcut" data-name="CapCut Pro" data-price="12" data-category="apps">
+      <div class="pTop">
+        <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+        <select class="planSelect" aria-label="Plan CapCut">
+          <option value="25" selected>Completa</option>
+          <option value="12" selected>Personal</option>
+        </select>
+      </div>
+      <div class="pImg"><img src="img/capcut.png" alt="CapCut"></div>
+      <div class="pBody">
+        <div class="pName">CapCut Pro</div>
+        <div class="pPrice">S/ 12.00</div>
+        <div class="pMeta">1 Mes | Edición pro.</div>
+        <button class="detailsBtn" type="button" data-details>Ver detalles y reglas</button>
+        <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+        <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+      </div>
+      <div class="pBar" style="background:#b000ff;"></div>
+    </article>
+    <!-- GEMINI PRO -->
+<article class="pCard"
+  data-id="web_gemini_pro"
+  data-name="Gemini Pro"
+  data-price="18"
+  data-category="web"
+  data-color="#8E44FF">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Gemini Pro">
+        <option value="35" selected>1 Año</option>
+        <option value="25" selected>6 Meses</option>
+        <option value="18" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/GEMINI.jpeg" alt="Gemini Pro">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Gemini Pro</div>
+    <div class="pPrice">S/ 18.00</div>
+    <div class="pMeta">
+      IA avanzada de Google con funciones profesionales y acceso premium.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#8E44FF;"></div>
+</article>
+
+<!-- TINDER GOLD -->
+<article class="pCard"
+  data-id="ap_tinder"
+  data-name="Tinder Gold"
+  data-price="18"
+  data-category="apps"
+  data-color="#ff4458">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Tinder Gold">
+      <option value="18" selected>1 Mes</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/TINDER.jpeg" alt="Tinder Gold">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Tinder Gold</div>
+    <div class="pPrice">S/ 18.00</div>
+    <div class="pMeta">
+      1 Mes | Activación a tu número | Likes ilimitados + Pasaporte.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#ff4458;"></div>
+</article>
+<!-- PANEL DE SEGUIDORES -->
+<article class="pCard"
+  data-id="web_panel_seguidores"
+  data-name="Panel de Seguidores"
+  data-price="50"
+  data-category="web"
+  data-color="#ff007a">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Panel de Seguidores">
+      
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/PANEL.jpeg" alt="Panel de Seguidores">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Panel de Seguidores</div>
+    <div class="pPrice">S/ 50.00</div>
+    <div class="pMeta">
+      Seguidores, likes y vistas para redes sociales. Panel automático 24/7.    
+      Genera tus propias ventas 
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#ff007a;"></div>
+</article>
+
+<article class="pCard"
+  data-id="web_Discord"
+  data-name="Discord Nitro"
+  data-price="21"
+  data-category="web"
+  data-color="#ff007a">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Discord Nitro">
+    
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/discord nitro.jpeg" alt="Discord Nitro">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Panel de Seguidores</div>
+    <div class="pPrice">S/ 21.00</div>
+    <div class="pMeta">
+      Discord Nitro 3 meses 
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#ff007a;"></div>
+</article>
+
+ </div>
+  <!-- ✅ GRID VIDEOJUEGOS -->
+  <div class="productsGrid hidden" data-grid="videojuegos">
+    <!-- XBOX GAME PASS ULTIMATE -->
+<article class="pCard"
+  data-id="vg_xbox_ultimate"
+  data-name="Xbox Game Pass Ultimate"
+  data-price="21"
+  data-category="videojuegos"
+  data-color="#107C10">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Xbox Game Pass Ultimate">
+      <option value="21" selected>1 Mes</option>
+      <option value="60">3 Meses</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/game pass xbox.jpeg" alt="Xbox Game Pass Ultimate">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Xbox Game Pass Ultimate</div>
+    <div class="pPrice">S/ 21.00</div>
+    <div class="pMeta">
+      1 Mes | PC y Consola.
+      Cuenta nueva completa.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#107C10;"></div>
+</article>
+<!-- FORTNITE PASS -->
+<article class="pCard"
+  data-id="vg_fortnite_pass"
+  data-name="Fortnite Battle Pass"
+  data-price="15"
+  data-category="videojuegos"
+  data-color="#6C2BD9">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>
+      🎁 +Combo
+    </button>
+
+    <select class="planSelect" aria-label="Plan Fortnite Pass">
+      <option value="15" selected>Temporada Actual</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/fornite pass.jpeg" alt="Fortnite Pass">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Fortnite Battle Pass</div>
+    <div class="pPrice">S/ 15.00</div>
+    <div class="pMeta">
+      Desbloquea recompensas exclusivas y skins premium.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge no" data-stock="1">❌ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>
+      🟢 Comprar ahora
+    </button>
+  </div>
+
+  <div class="pBar" style="background:#6C2BD9;"></div>
+</article>
+
+  </div>
+
+  <!-- ✅ GRID WINDOWS -->
+  <div class="productsGrid hidden" data-grid="windows">
+
+    <!-- WINDOWS PERMANENTE -->
+<article class="pCard"
+  data-id="Microsoft permanente"
+  data-name="Microsoft Windows Permanente"
+  data-price="40"
+  data-category="Office Permanente"
+  data-color="#0078D4">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Windows Permanente">
+      <option value="40" selected>Licencia Permanente</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/office perma.png" alt="Office Permanente">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Microsoft office Permanente</div>
+    <div class="pPrice">S/ 40.00</div>
+    <div class="pMeta">
+      Activación permanente | Compatible con PC y Laptop.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#ff3108;"></div>
+</article>
+<!-- WINDOWS 10 RETAIL KEY -->
+<article class="pCard"
+  data-id="win_windows10_retail"
+  data-name="Windows 10 Retail Key"
+  data-price="20"
+  data-category="windows"
+  data-color="#00A4EF">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Windows 10 Retail">
+      <option value="20" selected>Retail Key</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/windos 10 key.jpeg" alt="Windows 10">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Windows 10 Retail Key</div>
+    <div class="pPrice">S/ 20.00</div>
+    <div class="pMeta">
+      Clave original activable online | Transferible.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details>
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#00A4EF;"></div>
+</article>
+<!-- WINDOWS 11 PERMANENTE -->
+<article class="pCard"
+  data-id="win_windows11_perm"
+  data-name="Windows 11 Permanente"
+  data-price="40"
+  data-category="windows"
+  data-color="#0085FF">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add>🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Windows 11 Permanente">
+      <option value="40" selected>Licencia Permanente</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/windos 11 pro.jpeg" alt="Windows 11">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Windows 11 Permanente</div>
+    <div class="pPrice">S/ 40.00</div>
+    <div class="pMeta">
+      Activación digital original | Compatible con equipos modernos.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details">
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#0085FF;"></div>
+</article>
+<!-- OFFICE 365 PRO PLUS -->
+<article class="pCard"
+  data-id="win_office365_5"
+  data-name="Office 365 Pro Plus (5 Dispositivos)"
+  data-price="25"
+  data-category="windows"
+  data-color="#D83B01">
+
+  <div class="pTop">
+    <button class="comboBtn" type="button" data-combo-add">🎁 +Combo</button>
+
+    <select class="planSelect" aria-label="Plan Office 365">
+      <option value="25" selected>1 Año</option>
+    </select>
+  </div>
+
+  <div class="pImg">
+    <img src="img/office pro plus.jpeg" alt="Office 365">
+  </div>
+
+  <div class="pBody">
+    <div class="pName">Office 365 Pro Plus</div>
+    <div class="pPrice">S/ 25.00</div>
+    <div class="pMeta">
+      5 dispositivos | 1 año | Word, Excel, PowerPoint, Outlook y más.
+    </div>
+
+    <button class="detailsBtn" type="button" data-details">
+      Ver detalles y reglas
+    </button>
+
+    <div class="badge ok" data-stock="1">✅ CON STOCK</div>
+
+    <button class="buyNowBtn" data-buy>🟢 Comprar ahora</button>
+  </div>
+
+  <div class="pBar" style="background:#D83B01;"></div>
+</article>
+
+  </div>
+
+</section>
+
+          
+  </main>
+
+  <!-- =========================================================
+       BOTÓN FLOTANTE COMBO
+       ========================================================= -->
+  <button id="comboFloat" class="comboFloat" type="button">
+    🎁 <span class="count">0 items</span> | <strong class="total">S/ 0.00</strong>
+  </button>
+
+  <!-- =========================================================
+       MODAL COMBO
+       ========================================================= -->
+  <div id="comboModal" class="modal" aria-hidden="true">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Tu combo actual">
+
+      <div class="modalHead">
+        <h3>🎁 TU COMBO ACTUAL</h3>
+        <button id="closeModal" class="closeX" type="button">×</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="smallNote">
+          ⚡ AHORRO PROGRESIVO: <span>S/ 1.50</span> de descuento por cada servicio adicional.
+        </div>
+
+        <div id="comboList" class="comboList"></div>
+
+        <div class="totals">
+          <div class="row"><span>Subtotal:</span><strong id="subTotal">S/ 0.00</strong></div>
+          <div class="row"><span>Descuento Pack:</span><strong class="neg" id="discTotal">- S/ 0.00</strong></div>
+          <div class="bigTotal"><span>TOTAL A PAGAR:</span><span id="finalTotal">S/ 0.00</span></div>
+        </div>
+
+        <div class="provider">
+          <div>
+            <strong style="color:#fff">Proveedor favorito</strong>
+            <div style="color:var(--muted); font-size:13px;">Elige BRONXX o KAIRO</div>
+          </div>
+          <select id="providerSelect">
+            <option value="BRONXX">BRONXX</option>
+            <option value="KAIRO">KAIRO</option>
+          </select>
+        </div>
+
+        <button id="whatsappBtn" class="whBtn" type="button">🟢 Pedir por WhatsApp</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       MODAL DETALLES
+  ========================= -->
+  <div id="detailsModal" class="modal" aria-hidden="true">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Detalles del producto">
+      <div class="modalHead">
+        <h3 id="detailsTitle">Detalles</h3>
+        <button id="closeDetails" class="closeX" type="button">×</button>
+      </div>
+
+      <div class="modalBody">
+        <div id="detailsContent" style="color:rgba(255,255,255,.85); line-height:1.55;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tu JS -->
+  <script src="app.js"></script>
+</body>
+</html>
