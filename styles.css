@@ -560,25 +560,29 @@ img{max-width:100%;display:block}
    FLOATING COMBO BUTTON
 ========================= */
 .comboFloat{
-  position:fixed;
-  left: 18px;
-  bottom: 18px;
-  z-index:80;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: env(safe-area-inset-bottom, 20px);
+  
+  z-index: 9999;
 
   display:flex;
   align-items:center;
   gap:10px;
 
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-radius: 999px;
+
   color:#fff;
-  background: rgba(255,0,15,.92);
+  background: rgba(255,0,15,.95);
   border: 1px solid rgba(255,255,255,.14);
   box-shadow: 0 12px 40px rgba(0,0,0,.55);
+
   backdrop-filter: blur(10px);
   cursor:pointer;
-  transition:.2s ease;
 }
+
 .comboFloat:hover{
   transform: translateY(-2px);
 }
@@ -1132,3 +1136,4 @@ img{max-width:100%;display:block}
 /* lo que era verde “ok” */
 .badge.ok{ color:#37ff8b !important; } /* con stock verde */
 .row .neg{ color:#37ff8b !important; } /* descuento verde */
+
