@@ -476,11 +476,13 @@ confirmBuyBtn?.addEventListener("click", () => {
 
   const { name, price } = pendingBuy;
 
-  let message = `Hola quiero comprar este servicio:\n\n`;
-  message += `${name}\n`;
-  message += `Precio: S/ ${Number(price).toFixed(2)}\n`;
-  message += `Proveedor: ${provider}\n\n`;
-  message += `¿Está disponible?`;
+   let message = `🛒 *Nueva compra de STREAMING PE*\n\n`;
+   message += `📦 Servicio: *${name}*\n`;
+   message += `💰 Precio: S/ ${Number(price).toFixed(2)}\n`;
+   message += `👤 Proveedor elegido: ${provider}\n\n`;
+   message += `❓ ¿Está disponible?\n`;
+   message += `Gracias 🙌`;
+
 
   const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
@@ -549,3 +551,4 @@ document.addEventListener("click", (e) => {
     plus.textContent = it.classList.contains("open") ? "−" : "+";
   });
 });
+
