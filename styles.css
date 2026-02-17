@@ -1139,5 +1139,17 @@ img{max-width:100%;display:block}
 .badge.ok{ color:#37ff8b !important; } /* con stock verde */
 .row .neg{ color:#37ff8b !important; } /* descuento verde */
 
+/* FIX MOBILE (WhatsApp / Android WebView) */
+@media (max-width: 768px){
+  body{
+    background-attachment: scroll; /* evita bug del fixed en móvil */
+  }
+
+  .gridGlow{
+    mix-blend-mode: normal;  /* quita screen (causa el gris) */
+    opacity: .18;            /* baja intensidad */
+  }
+}
+
 
 
