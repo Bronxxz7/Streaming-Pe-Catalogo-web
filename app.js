@@ -305,9 +305,6 @@ if (searchInput){
   });
 }
 
-/* =========================================
-   CAMBIO DE PLAN (SELECT)
-========================================= */
 document.addEventListener("change", (e) => {
   if(!e.target.classList.contains("planSelect")) return;
 
@@ -315,10 +312,21 @@ document.addEventListener("change", (e) => {
   if(!card) return;
 
   const newPrice = Number(e.target.value);
+  const id = card.dataset.id;
+
+  // actualiza dataset del card
   card.dataset.price = newPrice;
 
+  // actualiza texto del precio en la card
   const priceEl = card.querySelector(".pPrice");
   if (priceEl) priceEl.textContent = `S/ ${newPrice.toFixed(2)}`;
+
+  // ✅ si este producto ya está en el combo, actualizar su precio guardado
+  const item = combo.find(x => x.id === id);
+  if (item) item.price = newPrice;
+
+  // ✅ recalcular totales (incluye cupón)
+  updateCombo();
 });
 
 /* =========================================
@@ -657,3 +665,4 @@ document.addEventListener("click", (e) => {
     plus.textContent = it.classList.contains("open") ? "−" : "+";
   });
 });
+
