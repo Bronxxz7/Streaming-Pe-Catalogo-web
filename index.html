@@ -1583,7 +1583,17 @@
           <div class="row"><span>Descuento Pack:</span><strong class="neg" id="discTotal">- S/ 0.00</strong></div>
           <div class="bigTotal"><span>TOTAL A PAGAR:</span><span id="finalTotal">S/ 0.00</span></div>
         </div>
+<!-- CUPÓN (COMBO) -->
+<div class="promoBlock">
+  <div class="promoLabel">🏷️ Código de descuento</div>
 
+  <div class="promoRow">
+    <input id="couponInput" class="promoInput" type="text" placeholder="Ej: OEWAA" />
+    <button id="applyCouponBtn" class="promoBtn" type="button">Aplicar</button>
+  </div>
+
+  <div id="couponMsg" class="promoMsg"></div>
+</div>
         <div class="provider">
           <div>
             <strong style="color:#fff">Proveedor favorito</strong>
@@ -1621,5 +1631,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
-
