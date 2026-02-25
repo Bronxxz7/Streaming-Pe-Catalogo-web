@@ -1584,32 +1584,19 @@
           <div class="bigTotal"><span>TOTAL A PAGAR:</span><span id="finalTotal">S/ 0.00</span></div>
         </div>
 <!-- CUPÓN (COMBO) -->
-<div class="promoBlock">
-  <div class="promoLabel">🏷️ Código de descuento</div>
-
-  <div class="promoRow">
-    <input id="couponInput" class="promoInput" type="text" placeholder="Ej: OEWAA" />
-    <button id="applyCouponBtn" class="promoBtn" type="button">Aplicar</button>
+<div class="provider" style="margin-top:12px;">
+  <div>
+    <strong style="color:#fff">Código de descuento</strong>
+    <div style="color:var(--muted); font-size:13px;">1 uso por cupón</div>
   </div>
 
-  <div id="couponMsg" class="promoMsg"></div>
+  <div style="display:flex; gap:8px; align-items:center;">
+    <input id="couponInput" placeholder="Ej: OEWAA"
+      style="width:140px; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.35); color:#fff; outline:none;">
+    <button id="applyCouponBtn" class="pill" type="button" style="padding:10px 12px;">Aplicar</button>
+  </div>
 </div>
-        <div class="provider">
-          <div>
-            <strong style="color:#fff">Proveedor favorito</strong>
-            <div style="color:var(--muted); font-size:13px;">Elige BRONXX o KAIRO</div>
-          </div>
-          <select id="providerSelect">
-            <option value="BRONXX">BRONXX</option>
-            <option value="KAIRO">KAIRO</option>
-          </select>
-        </div>
-
-        <button id="whatsappBtn" class="whBtn" type="button">🟢 Pedir por WhatsApp</button>
-
-      </div>
-    </div>
-  </div>
+<div id="couponMsg" style="margin-top:8px; color:#fff; opacity:.9; font-weight:800;"></div>
 
   <!-- =========================
        MODAL DETALLES
@@ -1631,3 +1618,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+
