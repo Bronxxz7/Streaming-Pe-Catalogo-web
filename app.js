@@ -2,13 +2,77 @@
    CONFIGURACIÓN GENERAL
 ========================================= */
 const DISCOUNT_PER_EXTRA = 1.5;
+
 // 📲 NÚMEROS WHATSAPP POR PROVEEDOR
 const WHATSAPP_NUMBERS = {
-  BRONXX: "51901738537",   // ← TU número (con código país sin +)
-  KAIRO:  "51904443915"     // ← Número de tu distribuidor
+  BRONXX: "51901738537",
+  KAIRO:  "51904443915"
 };
 
+/* =========================================
+   CUPÓN (1 USO) - DESCUENTO FIJO
+========================================= */
+const COUPON_DISCOUNT = 2; // 👈 cambia el descuento aquí
+const COUPON_STORAGE_KEY = "STREAMING_PE_COUPON";
 
+let appliedCoupon = null; // { code, discount }
+
+/* ---------- Cupón helpers ---------- */
+function setCoupon(code = "SP-2026", discount = COUPON_DISCOUNT){
+  const data = {
+    code: String(code).trim().toUpperCase(),
+    discount: Number(discount),
+    active: true,
+    used: false
+  };
+  localStorage.setItem(COUPON_STORAGE_KEY, JSON.stringify(data));
+  return data;
+}
+
+function generateCoupon(){
+  // ✅ tu cupón fijo
+  return setCoupon("OEWAA", COUPON_DISCOUNT);
+}
+
+function getCoupon(){
+  try{
+    return JSON.parse(localStorage.getItem(COUPON_STORAGE_KEY));
+  }catch{
+    return null;
+  }
+}
+
+function deactivateCoupon(){
+  const c = getCoupon();
+  if(!c) return;
+  c.active = false;
+  c.used = true;
+  localStorage.setItem(COUPON_STORAGE_KEY, JSON.stringify(c));
+}
+
+function validateAndApplyCoupon(inputCode){
+  const c = getCoupon();
+  if(!c) return { ok:false, msg:"Cupón no creado." };
+
+  const code = (inputCode || "").trim().toUpperCase();
+  if(!code) return { ok:false, msg:"Escribe tu cupón." };
+
+  if(!c.active || c.used) return { ok:false, msg:"Este cupón ya fue usado o está desactivado." };
+  if(code !== String(c.code).toUpperCase()) return { ok:false, msg:"Cupón inválido." };
+
+  appliedCoupon = { code: c.code, discount: Number(c.discount || COUPON_DISCOUNT) };
+  return { ok:true, msg:`✅ Cupón aplicado: -S/ ${appliedCoupon.discount.toFixed(2)}` };
+}
+
+// aplica descuento a un total (mínimo 0)
+function applyCouponToTotal(total){
+  if(!appliedCoupon) return Number(total || 0);
+  return Math.max(0, Number(total || 0) - appliedCoupon.discount);
+}
+
+/* =========================================
+   COMBO STATE
+========================================= */
 let combo = [];
 
 /* =========================================
@@ -43,39 +107,28 @@ const detailsTitle   = document.getElementById("detailsTitle");
 const detailsContent = document.getElementById("detailsContent");
 
 /* =========================================
+   CUPÓN UI - COMBO (NUEVO)
+========================================= */
+const couponInputCombo = document.getElementById("couponInputCombo");
+const applyCouponCombo = document.getElementById("applyCouponCombo");
+const couponMsgCombo   = document.getElementById("couponMsgCombo");
+
+applyCouponCombo?.addEventListener("click", () => {
+  const res = validateAndApplyCoupon(couponInputCombo?.value);
+  if (couponMsgCombo) couponMsgCombo.textContent = res.msg;
+  updateCombo(); // ✅ para que se vea el descuento al toque
+});
+
+/* =========================================
    DATOS DE SECCIONES
 ========================================= */
 const sections = {
-  streaming: {
-    title: "STREAMING",
-    desc: "Las mejores películas, series y TV en vivo. Garantía total.",
-    accent: "#ff000f"
-  },
-  musica: {
-    title: "MÚSICA",
-    desc: "Disfruta tu música favorita sin anuncios.",
-    accent: "#37ff8b"
-  },
-  apps: {
-    title: "APPS PREMIUM",
-    desc: "Herramientas y apps profesionales.",
-    accent: "#b000ff"
-  },
-  web: {
-    title: "SERVICIOS WEB",
-    desc: "Herramientas digitales y almacenamiento.",
-    accent: "#37ff8b"
-  },
-  videojuegos: {
-    title: "VIDEOJUEGOS",
-    desc: "Diversión ilimitada.",
-    accent: "#37ff8b"
-  },
-  windows: {
-    title: "WINDOWS",
-    desc: "Licencias y software original.",
-    accent: "#0078ff"
-  }
+  streaming: { title: "STREAMING", desc: "Las mejores películas, series y TV en vivo. Garantía total.", accent: "#ff000f" },
+  musica:    { title: "MÚSICA", desc: "Disfruta tu música favorita sin anuncios.", accent: "#37ff8b" },
+  apps:      { title: "APPS PREMIUM", desc: "Herramientas y apps profesionales.", accent: "#b000ff" },
+  web:       { title: "SERVICIOS WEB", desc: "Herramientas digitales y almacenamiento.", accent: "#37ff8b" },
+  videojuegos:{ title: "VIDEOJUEGOS", desc: "Diversión ilimitada.", accent: "#37ff8b" },
+  windows:   { title: "WINDOWS", desc: "Licencias y software original.", accent: "#0078ff" }
 };
 
 /* =========================================
@@ -85,13 +138,9 @@ function isOutOfStock(card){
   const badge = card.querySelector(".badge");
   if(!badge) return false;
 
-  // Caso 1: badge con data-stock="0"
   if (badge.dataset.stock === "0") return true;
-
-  // Caso 2: clase .no (tú usas <div class="badge no">❌ SIN STOCK</div>)
   if (badge.classList.contains("no")) return true;
 
-  // Caso 3: texto contiene SIN STOCK / AGOTADO
   const t = (badge.textContent || "").toLowerCase();
   if (t.includes("sin stock") || t.includes("agotado") || t.includes("no disponible")) return true;
 
@@ -136,13 +185,11 @@ function applyStockUI(card){
 
 /* =========================================
    FIX AUTOMÁTICO: SI HAY CARDS SUELTAS, MÉTELAS A STREAMING
-   (por tu HTML actual, tus cards de Streaming quedaron fuera de un data-grid)
 ========================================= */
 function fixLooseCardsIntoStreaming(){
   const streamingGrid = document.querySelector('[data-grid="streaming"]');
   if (!streamingGrid) return;
 
-  // cards que NO estén dentro de un grid data-grid
   const looseCards = [...document.querySelectorAll("#sectionPage .pCard")]
     .filter(card => !card.closest("[data-grid]"));
 
@@ -158,32 +205,23 @@ function getAllGrids(){
 
 function showGrid(key){
   const grids = getAllGrids();
-
-  // oculta todos
   grids.forEach(g => g.classList.add("hidden"));
 
-  // busca el correcto (case-insensitive)
   const target = grids.find(g => (g.dataset.grid || "").toLowerCase() === String(key).toLowerCase());
   if (target) target.classList.remove("hidden");
 
-  // stock UI en el visible
   if (target){
     target.querySelectorAll(".pCard").forEach(applyStockUI);
   }
 
-  // limpia buscador
   if (searchInput) searchInput.value = "";
 }
-
 
 /* =========================================
    NAVEGACIÓN ENTRE SECCIONES
 ========================================= */
 document.querySelectorAll(".catCard").forEach(card => {
-  card.addEventListener("click", () => {
-    const target = card.dataset.go; // streaming, musica, apps...
-    openSection(target);
-  });
+  card.addEventListener("click", () => openSection(card.dataset.go));
 });
 
 function openSection(key){
@@ -195,12 +233,9 @@ function openSection(key){
 
   sectionTitle.textContent = data.title;
   sectionDesc.textContent  = data.desc;
-  sectionLine.style.background =
-    `linear-gradient(90deg, transparent, ${data.accent}, transparent)`;
-
+  sectionLine.style.background = `linear-gradient(90deg, transparent, ${data.accent}, transparent)`;
   document.documentElement.style.setProperty("--accent", data.accent);
 
-  // 👇 muestra SOLO el grid correcto
   showGrid(key);
 }
 
@@ -208,16 +243,10 @@ backHomeBtn.addEventListener("click", () => {
   sectionPage.classList.add("hidden");
   homeSection.classList.remove("hidden");
 
-  // limpiar búsqueda
   if (searchInput) searchInput.value = "";
-
-  // ocultar todos los grids
   getAllGrids().forEach(g => g.classList.add("hidden"));
-
-  // restaurar display de todas las cards
   document.querySelectorAll(".pCard").forEach(c => c.style.display = "");
 });
-
 
 /* =========================================
    BUSCADOR: FILTRA SOLO EN EL GRID VISIBLE
@@ -225,18 +254,15 @@ backHomeBtn.addEventListener("click", () => {
 if (searchInput){
   searchInput.addEventListener("input", () => {
     const q = searchInput.value.trim().toLowerCase();
-
     const visibleGrid = getAllGrids().find(g => !g.classList.contains("hidden"));
     if (!visibleGrid) return;
 
     visibleGrid.querySelectorAll(".pCard").forEach(card => {
       const name = (card.dataset.name || "").toLowerCase();
-      const show = name.includes(q);
-      card.style.display = show ? "" : "none";
+      card.style.display = name.includes(q) ? "" : "none";
     });
   });
 }
-
 
 /* =========================================
    CAMBIO DE PLAN (SELECT)
@@ -252,6 +278,14 @@ document.addEventListener("change", (e) => {
 
   const priceEl = card.querySelector(".pPrice");
   if (priceEl) priceEl.textContent = `S/ ${newPrice.toFixed(2)}`;
+
+  // ✅ si cambias plan y ese item está en combo, actualiza su precio
+  const id = card.dataset.id;
+  const item = combo.find(x => x.id === id);
+  if (item){
+    item.price = newPrice;
+    updateCombo();
+  }
 });
 
 /* =========================================
@@ -286,9 +320,11 @@ document.addEventListener("click", (e) => {
 });
 
 /* =========================================
-   COMBO: ACTUALIZAR
+   COMBO: ACTUALIZAR (con cupón)
 ========================================= */
 function updateCombo(){
+  if (!comboList) return;
+
   comboList.innerHTML = "";
 
   combo.forEach(item => {
@@ -303,12 +339,15 @@ function updateCombo(){
   });
 
   const subtotal = combo.reduce((sum, i) => sum + i.price, 0);
-  const discount = combo.length > 1 ? (combo.length - 1) * DISCOUNT_PER_EXTRA : 0;
-  const total = subtotal - discount;
+  const packDiscount = combo.length > 1 ? (combo.length - 1) * DISCOUNT_PER_EXTRA : 0;
+  const totalBeforeCoupon = subtotal - packDiscount;
 
-  subTotalEl.textContent  = `S/ ${subtotal.toFixed(2)}`;
-  discTotalEl.textContent = `- S/ ${discount.toFixed(2)}`;
-  finalTotalEl.textContent= `S/ ${total.toFixed(2)}`;
+  const total = applyCouponToTotal(totalBeforeCoupon);
+  const couponDiscount = appliedCoupon ? Math.max(0, totalBeforeCoupon - total) : 0;
+
+  subTotalEl.textContent   = `S/ ${subtotal.toFixed(2)}`;
+  discTotalEl.textContent  = `- S/ ${(packDiscount + couponDiscount).toFixed(2)}`;
+  finalTotalEl.textContent = `S/ ${total.toFixed(2)}`;
 
   comboFloat.querySelector(".count").textContent = `${combo.length} items`;
   comboFloat.querySelector(".total").textContent = `S/ ${total.toFixed(2)}`;
@@ -341,7 +380,7 @@ comboModal.addEventListener("click", (e) => {
 });
 
 /* =========================================
-   WHATSAPP: COMBO
+   WHATSAPP: COMBO (incluye cupón)
 ========================================= */
 whatsappBtn.addEventListener("click", () => {
   if (combo.length === 0) {
@@ -360,23 +399,34 @@ whatsappBtn.addEventListener("click", () => {
   }
 
   const subtotal = combo.reduce((sum, i) => sum + i.price, 0);
-  const discount = combo.length > 1 ? (combo.length - 1) * DISCOUNT_PER_EXTRA : 0;
-  const total = subtotal - discount;
+  const packDiscount = combo.length > 1 ? (combo.length - 1) * DISCOUNT_PER_EXTRA : 0;
+  const totalBeforeCoupon = subtotal - packDiscount;
+  const total = applyCouponToTotal(totalBeforeCoupon);
+  const couponDiscount = appliedCoupon ? Math.max(0, totalBeforeCoupon - total) : 0;
 
   let message = "Hola, quiero este combo:\n\n";
-
-  combo.forEach(item => {
-    message += `${item.name} - S/ ${item.price.toFixed(2)}\n`;
-  });
+  combo.forEach(item => { message += `${item.name} - S/ ${item.price.toFixed(2)}\n`; });
 
   message += `\nProveedor: ${provider}`;
-  message += `\nDescuento: - S/ ${discount.toFixed(2)}`;
+  message += `\nDescuento pack: - S/ ${packDiscount.toFixed(2)}`;
+
+  if (appliedCoupon){
+    message += `\nCupón (${appliedCoupon.code}): - S/ ${couponDiscount.toFixed(2)}`;
+  }
+
   message += `\nTotal a pagar: S/ ${total.toFixed(2)}`;
 
-  const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-});
+  window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank");
 
+  // ✅ 1 uso
+  if (appliedCoupon){
+    deactivateCoupon();
+    appliedCoupon = null;
+    if (couponMsgCombo) couponMsgCombo.textContent = "";
+    if (couponInputCombo) couponInputCombo.value = "";
+    updateCombo();
+  }
+});
 
 /* =========================================
    MODAL DETALLES
@@ -418,32 +468,34 @@ document.addEventListener("click", (e) => {
   detailsModal.classList.add("open");
 });
 
-closeDetails.addEventListener("click", () => {
-  detailsModal.classList.remove("open");
-});
-
-detailsModal.addEventListener("click", (e) => {
-  if (e.target === detailsModal) detailsModal.classList.remove("open");
-});
+closeDetails.addEventListener("click", () => detailsModal.classList.remove("open"));
+detailsModal.addEventListener("click", (e) => { if (e.target === detailsModal) detailsModal.classList.remove("open"); });
 
 /* =========================================
    COMPRA INDIVIDUAL
 ========================================= */
-// ==============================
-// MODAL PROVEEDOR (COMPRA INDIVIDUAL)
-// ==============================
 const providerModal = document.getElementById("providerModal");
 const closeProvider = document.getElementById("closeProvider");
 const providerSelectSingle = document.getElementById("providerSelectSingle");
 const confirmBuyBtn = document.getElementById("confirmBuyBtn");
 
-let pendingBuy = null; // aquí guardamos { name, price } del producto seleccionado
+// Cupón (compra individual)
+const couponInputSingle = document.getElementById("couponInputSingle");
+const applyCouponSingle = document.getElementById("applyCouponSingle");
+const couponMsgSingle   = document.getElementById("couponMsgSingle");
+
+let pendingBuy = null; // { name, price }
 
 function openProviderModalForBuy(name, price){
   pendingBuy = { name, price };
 
-  // reset select
+  // ✅ limpia UI
   if (providerSelectSingle) providerSelectSingle.value = "";
+  if (couponMsgSingle) couponMsgSingle.textContent = "";
+  if (couponInputSingle) couponInputSingle.value = "";
+
+  // ✅ importante: NO arrastrar cupón viejo
+  appliedCoupon = null;
 
   providerModal.classList.add("open");
   providerSelectSingle?.focus();
@@ -452,16 +504,24 @@ function openProviderModalForBuy(name, price){
 closeProvider?.addEventListener("click", () => {
   providerModal.classList.remove("open");
   pendingBuy = null;
+  appliedCoupon = null;
 });
 
 providerModal?.addEventListener("click", (e) => {
   if (e.target === providerModal) {
     providerModal.classList.remove("open");
     pendingBuy = null;
+    appliedCoupon = null;
   }
 });
 
-// Confirmar compra individual -> WhatsApp
+// ✅ Aplicar cupón en modal individual (ahora sí existe el botón/input)
+applyCouponSingle?.addEventListener("click", () => {
+  const res = validateAndApplyCoupon(couponInputSingle?.value);
+  if (couponMsgSingle) couponMsgSingle.textContent = res.msg;
+});
+
+// Confirmar compra individual -> WhatsApp (aplica cupón al precio)
 confirmBuyBtn?.addEventListener("click", () => {
   if (!pendingBuy) return;
 
@@ -476,25 +536,39 @@ confirmBuyBtn?.addEventListener("click", () => {
 
   const { name, price } = pendingBuy;
 
-   let message = `🛒 *Nueva compra de STREAMING PE*\n\n`;
-   message += `📦 Servicio: *${name}*\n`;
-   message += `💰 Precio: S/ ${Number(price).toFixed(2)}\n`;
-   message += `👤 Proveedor elegido: ${provider}\n\n`;
-   message += `❓ ¿Está disponible?\n`;
-   message += `Gracias 🙌`;
+  const priceBeforeCoupon = Number(price || 0);
+  const finalPrice = applyCouponToTotal(priceBeforeCoupon);
+  const couponDiscount = appliedCoupon ? Math.max(0, priceBeforeCoupon - finalPrice) : 0;
 
+  let message = `🛒 *Nueva compra de STREAMING PE*\n\n`;
+  message += `📦 Servicio: *${name}*\n`;
+  message += `💰 Precio: S/ ${priceBeforeCoupon.toFixed(2)}\n`;
 
-  const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+  if (appliedCoupon){
+    message += `🏷️ Cupón (${appliedCoupon.code}): - S/ ${couponDiscount.toFixed(2)}\n`;
+    message += `✅ Total con cupón: S/ ${finalPrice.toFixed(2)}\n`;
+  } else {
+    message += `✅ Total: S/ ${priceBeforeCoupon.toFixed(2)}\n`;
+  }
+
+  message += `👤 Proveedor elegido: ${provider}\n\n`;
+  message += `❓ ¿Está disponible?\n`;
+  message += `Gracias 🙌`;
+
+  window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank");
 
   providerModal.classList.remove("open");
   pendingBuy = null;
+
+  // ✅ 1 uso
+  if (appliedCoupon){
+    deactivateCoupon();
+    appliedCoupon = null;
+  }
+  updateCombo();
 });
 
-
-// ==============================
-// COMPRA INDIVIDUAL (CLICK)
-// ==============================
+// Click comprar en cards
 document.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-buy]");
   if (!btn) return;
@@ -505,31 +579,31 @@ document.addEventListener("click", (e) => {
   if (isOutOfStock(card)) {
     showNoStock();
     return;
-  } 
+  }
 
   const name = card.dataset.name || "Servicio";
   const price = Number(card.dataset.price || 0);
-
-  // En vez de ir directo a WhatsApp, abrimos modal proveedor
   openProviderModalForBuy(name, price);
 });
-
 
 /* =========================================
    INIT
 ========================================= */
 document.addEventListener("DOMContentLoaded", () => {
-
+  fixLooseCardsIntoStreaming();
   document.querySelectorAll(".pCard").forEach(applyStockUI);
+
+  const existing = getCoupon();
+  if (!existing || !existing.code || existing.used || !existing.active) {
+    generateCoupon(); // OEWAA
+  }
 
   updateCombo();
 });
 
-
-
-// =========================
-// FAQ acordeón (HOME)
-// =========================
+/* =========================
+   FAQ acordeón (HOME)
+========================= */
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".faqQ");
   if (!btn) return;
@@ -537,18 +611,15 @@ document.addEventListener("click", (e) => {
   const item = btn.closest(".faqItem");
   if (!item) return;
 
-  // Cierra los otros (opcional)
   document.querySelectorAll(".faqItem.open").forEach(x => {
     if (x !== item) x.classList.remove("open");
   });
 
   item.classList.toggle("open");
 
-  // Cambia + / −
   document.querySelectorAll(".faqItem").forEach(it => {
     const plus = it.querySelector(".faqPlus");
     if (!plus) return;
     plus.textContent = it.classList.contains("open") ? "−" : "+";
   });
 });
-
