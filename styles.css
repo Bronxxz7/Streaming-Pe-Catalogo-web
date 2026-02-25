@@ -1,18 +1,10 @@
 /* =========================
-   VARIABLES / BASE
-========================= */
+   GLOBAL / BASE
+========================= */    
 :root{
   --text:#ffffff;
-  --muted: rgba(255,255,255,.78);
-
-  --accent:#ff0015;
-  --accent2:#b3000f;
-
-  --r: 22px;
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
+  --muted:#ffffff;
 }
-
-*{ box-sizing:border-box; }
 
 body{
   margin:0;
@@ -31,17 +23,18 @@ body{
   background-attachment: fixed;
 }
 
-a{ color:inherit; }
-img{ max-width:100%; display:block; }
-.hidden{ display:none !important; }
 
-.accent{ color: var(--accent); }
+
+a{color:inherit}
+img{max-width:100%;display:block}
+
+.hidden{display:none !important}
+
 
 /* =========================
    BACKGROUND LAYERS
 ========================= */
-.bg{ position:fixed; inset:0; z-index:-3; }
-
+.bg{position:fixed; inset:0; z-index:-3;}
 .stars{
   position:absolute; inset:-20%;
   background:
@@ -54,8 +47,8 @@ img{ max-width:100%; display:block; }
   animation: drift 18s linear infinite;
 }
 @keyframes drift{
-  0%{ transform:translate3d(0,0,0); }
-  100%{ transform:translate3d(-120px,60px,0); }
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(-120px,60px,0)}
 }
 
 .vignette{
@@ -64,7 +57,8 @@ img{ max-width:100%; display:block; }
   z-index:-1;
 }
 
-.gridGlow{
+
+  .gridGlow{
   position:absolute; inset:0;
   background:
     radial-gradient(800px 420px at 50% 45%, rgba(255,0,15,.12), transparent 60%),
@@ -72,6 +66,8 @@ img{ max-width:100%; display:block; }
   mix-blend-mode: screen;
   opacity:.45;
 }
+
+
 
 /* =========================
    LAYOUT WRAPPER
@@ -96,47 +92,70 @@ img{ max-width:100%; display:block; }
   background: linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,0));
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,0,15,.18);
+
 }
 
-.brand{ display:flex; gap:12px; align-items:center; }
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
 
 .logo{
-  width:42px; height:42px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   overflow:hidden;
   border: 1px solid rgba(255,0,15,.35);
   box-shadow: 0 0 14px rgba(255,0,15,.22);
 }
 
-.brandText{ letter-spacing:.4px; font-size:14px; color:#fff; }
-.brandText strong{ color:#fff; font-weight:900; }
 
-.actions{ display:flex; gap:10px; align-items:center; }
+
+.brandText{
+  letter-spacing:.4px;
+  font-size:14px;
+  color:#fff;
+}
+.brandText strong{
+  color:#fff;
+  font-weight:900;
+}
+.accent{ color: var(--green); }
+
+.actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
 
 .pill{
   cursor:pointer;
   border:none;
   border-radius:999px;
   padding:10px 14px;
-  color:#fff;
+  color:#fff; /* texto blanco */
   background: rgba(0,0,0,.7);
-  border:1px solid rgba(255,0,15,.35);
+  border:1px solid rgba(255,0,15,.35); /* rojo */
   transition: .25s ease;
-  box-shadow: 0 0 14px rgba(255,0,15,.18);
 }
+
 .pill:hover{
-  box-shadow: 0 0 18px rgba(255,0,15,.45);
+  box-shadow: 0 0 18px rgba(255,0,15,.45); /* brillo rojo */
   transform: translateY(-1px);
 }
 
 .pillDot{
   display:inline-block;
-  width:10px; height:10px;
+  width:10px;
+  height:10px;
   border-radius:999px;
   margin-right:8px;
-  background: #ff000f;
+  background: #ff000f;   /* 🔴 rojo */
   box-shadow: 0 0 12px rgba(255,0,15,.6);
 }
+
 
 /* =========================
    HOME HERO
@@ -153,32 +172,34 @@ img{ max-width:100%; display:block; }
   overflow:hidden;
   margin: 0 auto 18px;
 
-  position:relative; /* ✅ necesario para pulse::after */
   border: 1px solid rgba(255,0,15,.30);
   box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 18px rgba(255,0,15,.18);
   background: rgba(0,0,0,.35);
 }
 
+
+
 .heroImg{
-  width:100%;
-  height:100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 👈 entra completa */
   object-position: center;
+  display: block;
 }
+
 
 .pulse::after{
   content:"";
   position:absolute;
   inset:-10px;
   border-radius:42px;
-  border:1px solid rgba(255,0,15,.18);
+  border:1px solid rgba(55,255,139,.15);
   animation: pulse 2.2s ease-in-out infinite;
-  pointer-events:none;
 }
 @keyframes pulse{
-  0%{ transform:scale(.98); opacity:.22; }
-  50%{ transform:scale(1.05); opacity:.55; }
-  100%{ transform:scale(.98); opacity:.22; }
+  0%{transform:scale(.98); opacity:.22}
+  50%{transform:scale(1.05); opacity:.55}
+  100%{transform:scale(.98); opacity:.22}
 }
 
 .title{
@@ -188,12 +209,12 @@ img{ max-width:100%; display:block; }
   font-weight: 900;
   color:#fff;
 }
-
 .subtitle{
   margin: 10px auto 0;
   max-width: 680px;
-  color: #ffffff;
+  color: #ffffff;   /* 🔥 blanco */
   line-height: 1.55;
+  opacity: 1;       /* importante */
 }
 
 .divider{
@@ -201,56 +222,12 @@ img{ max-width:100%; display:block; }
   width: 120px;
   height: 2px;
   border-radius:999px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  box-shadow: 0 0 18px rgba(255,0,15,.25);
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  box-shadow: 0 0 18px rgba(55,255,139,.25);
 }
 
 /* =========================
-   CUPÓN (HOME) ✅
-========================= */
-.couponRow{
-  position:absolute;
-  left:50%;
-  transform: translateX(-50%);
-  bottom:-58px;
-  display:flex;
-  gap:8px;
-  align-items:center;
-  width: min(360px, 86vw);
-}
-
-.couponInput{
-  flex:1;
-  height: 40px;
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(255,0,15,.30);
-  color:#fff;
-  border-radius: 12px;
-  padding: 0 12px;
-  outline:none;
-  text-transform: uppercase;
-}
-
-.couponBtn{
-  height: 40px;
-  cursor:pointer;
-  border:none;
-  padding: 0 14px;
-  border-radius: 12px;
-  font-weight: 950;
-  color:#fff;
-  background: rgba(255,0,15,.95);
-}
-
-.couponMsg{
-  margin-top: 64px;
-  font-size: 13px;
-  font-weight: 800;
-  color: rgba(255,255,255,.85);
-}
-
-/* =========================
-   CATEGORY GRID
+   CATEGORY GRID (6 cuadros)
 ========================= */
 .categoryGrid{
   margin-top: 26px;
@@ -259,10 +236,10 @@ img{ max-width:100%; display:block; }
   gap: 16px;
 }
 @media (max-width: 980px){
-  .categoryGrid{ grid-template-columns: repeat(2, 1fr); }
+  .categoryGrid{grid-template-columns: repeat(2, 1fr);}
 }
 @media (max-width: 620px){
-  .categoryGrid{ grid-template-columns: 1fr; }
+  .categoryGrid{grid-template-columns: 1fr;}
 }
 
 .catCard{
@@ -274,19 +251,23 @@ img{ max-width:100%; display:block; }
   border-radius: var(--r);
   overflow:hidden;
   background: #0a0a0a;
-  border: 1px solid rgba(255,0,15,.30);
-  box-shadow: var(--shadow), 0 0 18px rgba(255,0,15,.18);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
   min-height: 230px;
   transition: .25s ease;
 }
 .catCard:hover{
   transform: translateY(-4px);
-  border-color: rgba(255,0,15,.45);
+  border-color: rgba(255,255,255,.18);
 }
 
-.catBg{ position:absolute; inset:0; }
+.catBg{
+  position:absolute;
+  inset:0;
+}
 .catBg img{
-  width:100%; height:100%;
+  width:100%;
+  height:100%;
   object-fit:cover;
   filter: saturate(.9) contrast(1.02);
   transform: scale(1.03);
@@ -300,7 +281,9 @@ img{ max-width:100%; display:block; }
 
 .catContent{
   position:absolute;
-  left: 22px; bottom: 22px; right: 18px;
+  left: 22px;
+  bottom: 22px;
+  right: 18px;
 }
 .catContent h3{
   margin:0;
@@ -319,7 +302,9 @@ img{ max-width:100%; display:block; }
 
 .catBar{
   position:absolute;
-  left:0; right:0; bottom:0;
+  left:0;
+  right:0;
+  bottom:0;
   height:3px;
   opacity: .95;
 }
@@ -327,7 +312,9 @@ img{ max-width:100%; display:block; }
 /* =========================
    SECTION PAGE
 ========================= */
-.sectionPage{ padding-top: 8px; }
+.sectionPage{
+  padding-top: 8px;
+}
 
 .sectionTop{
   display:flex;
@@ -336,7 +323,6 @@ img{ max-width:100%; display:block; }
   gap:12px;
   margin: 14px 0 18px;
 }
-
 .backBtn{
   position: sticky;
   top: 15px;
@@ -353,8 +339,10 @@ img{ max-width:100%; display:block; }
   backdrop-filter: blur(12px);
 
   border: 1px solid rgba(255,0,20,.35);
-  color: #ff0015;
+
+  color: #ff0015;   /* 🔴 rojo neon */
   font-weight:600;
+  text-decoration:none;
 
   box-shadow:
     0 0 8px rgba(255,0,20,.35),
@@ -362,6 +350,7 @@ img{ max-width:100%; display:block; }
 
   transition:.25s ease;
 }
+
 .backBtn:hover{
   background: rgba(0,0,0,.75);
   box-shadow:
@@ -370,17 +359,15 @@ img{ max-width:100%; display:block; }
   transform: translateY(-2px);
 }
 
-/* Si lo quieres FIJO, descomenta:
-.backBtn{ position: fixed; top: 100px; left: 20px; }
-*/
+
 
 .moneyPill{
   border:none;
   border-radius:999px;
   padding:10px 14px;
-  color:#fff;
+  color: var(--text);
   background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.30);
+  border: 1px solid rgba(255,255,255,.10);
   backdrop-filter: blur(10px);
 }
 
@@ -417,11 +404,10 @@ img{ max-width:100%; display:block; }
   padding: 12px 14px;
   border-radius: 999px;
   background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.30);
+  border: 1px solid rgba(255,255,255,.12);
   display:flex;
   gap:10px;
   align-items:center;
-  box-shadow: 0 0 14px rgba(255,0,15,.18);
 }
 .searchWrap input{
   width:100%;
@@ -431,30 +417,40 @@ img{ max-width:100%; display:block; }
   color:#fff;
   font-size: 14.5px;
 }
-.searchWrap .icon{ opacity:.9; }
+.searchWrap .icon{opacity:.9}
 
 /* =========================
    PRODUCTS GRID + CARDS
 ========================= */
+.badge.no{
+  color:#ff4d4d;
+  border-color: rgba(255,77,77,.35);
+  background: rgba(255,77,77,.08);
+}
+
+/* ✅ GRID UNIFICADO para TODOS los data-grid */
 .productsGrid{
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
   margin-top: 28px;
 }
 
+
+/* ✅ CARD CONSISTENTE */
 .pCard{
   position:relative;
   border-radius: var(--r);
   overflow:hidden;
   background: rgba(15, 15, 15, 0.80);
-  border: 1px solid rgba(255,0,15,.30);
-  box-shadow: var(--shadow), 0 0 18px rgba(255,0,15,.18);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
   transition: .25s ease;
 }
 .pCard:hover{
   transform: translateY(-4px);
-  border-color: rgba(255,0,15,.45);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: var(--shadow), 0 0 18px rgba(0,0,0,.22);
 }
 
 .pTop{
@@ -471,68 +467,39 @@ img{ max-width:100%; display:block; }
   padding: 8px 12px;
   border-radius: 10px;
   font-weight: 950;
-  color:#fff;
+  color: #fff;
   background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.30);
+  border: 1px solid rgba(255,255,255,.12);
 }
-.comboBtn:hover{ border-color: rgba(255,0,15,.45); }
+.comboBtn:hover{
+  border-color: rgba(255,255,255,.20);
+}
 
 .planSelect{
-  appearance:none;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(255,0,15,.30);
-  color: rgba(255,255,255,.92);
-
-  border-radius: 14px;
-  padding: 8px 36px 8px 12px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  color:#fff;
+  border-radius: 12px;
+  padding: 8px 10px;
   outline:none;
-  cursor:pointer;
-
-  box-shadow: 0 0 10px rgba(255,0,15,.14);
-  transition: .2s ease;
-}
-
-.planSelect:hover{
-  border-color: rgba(255,0,15,.45);
-  box-shadow: 0 0 14px rgba(255,0,15,.18);
-}
-.planSelect:focus{
-  border-color: rgba(255,0,15,.65);
-  box-shadow: 0 0 0 3px rgba(255,0,15,.15), 0 0 18px rgba(255,0,15,.22);
-}
-
-.pTop .planSelect{
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(255,0,15,.9) 50%),
-    linear-gradient(135deg, rgba(255,0,15,.9) 50%, transparent 50%),
-    linear-gradient(to right, transparent, transparent);
-  background-position:
-    calc(100% - 18px) 50%,
-    calc(100% - 12px) 50%,
-    100% 0;
-  background-size: 6px 6px, 6px 6px, 2.5em 2.5em;
-  background-repeat:no-repeat;
-}
-
-.planSelect option{
-  background: #0a0a0a;
-  color: rgba(255,255,255,.95);
 }
 
 .pImg{
-  width:92px; height:92px;
-  border-radius:999px;
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
   margin: 18px auto 10px;
   background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.22);
+  border: 1px solid rgba(255,255,255,.12);
   display:grid;
   place-items:center;
   overflow:hidden;
 }
-.pImg img{ width:100%; height:100%; object-fit:cover; }
+.pImg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
 .pBody{
   padding: 0 18px 16px;
@@ -551,7 +518,7 @@ img{ max-width:100%; display:block; }
   font-size: 30px;
   font-weight: 950;
   color: var(--accent);
-  text-shadow: 0 0 10px var(--accent), 0 0 18px rgba(0,0,0,.35);
+  text-shadow: 0 0 18px rgba(0,0,0,.35);
 }
 
 .pMeta{
@@ -561,19 +528,15 @@ img{ max-width:100%; display:block; }
   line-height: 1.35;
 }
 
-.detailsBtn{
+.details{
+  display:inline-block;
   margin: 14px 0 0;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
   color:#fff;
   opacity:.9;
   font-weight:800;
   text-decoration: underline;
   text-underline-offset: 6px;
 }
-.detailsBtn:hover{ opacity:1; }
 
 .badge{
   display:inline-flex;
@@ -587,42 +550,13 @@ img{ max-width:100%; display:block; }
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(0,0,0,.35);
 }
-.badge.ok{ color:#37ff8b; }
-.badge.no{
-  color:#ff4d4d;
-  border-color: rgba(255,77,77,.35);
-  background: rgba(255,77,77,.08);
-}
+.badge.ok{ color: #37ff8b; }
 
-.buyNowBtn{
-  margin-top:12px;
-  width:100%;
-  border:none;
-  padding:12px;
-  border-radius:14px;
-  font-weight:900;
-  cursor:pointer;
-  background:#25D366;
-  color:#fff;
-  transition:.2s ease;
-  box-shadow: 0 0 18px rgba(37, 211, 102, .35);
+.pBar{
+  height: 3px;
+  width: 100%;
+  opacity:.95;
 }
-.buyNowBtn:hover{
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-.buyNowBtn.disabled{
-  background: #555 !important;
-  cursor: not-allowed;
-  opacity: .7;
-  box-shadow:none;
-}
-.buyNowBtn.disabled:hover{
-  transform:none;
-  filter:none;
-}
-
-.pBar{ height:3px; width:100%; opacity:.95; }
 
 /* =========================
    FLOATING COMBO BUTTON
@@ -632,6 +566,7 @@ img{ max-width:100%; display:block; }
   left: 50%;
   transform: translateX(-50%);
   bottom: env(safe-area-inset-bottom, 20px);
+  
   z-index: 9999;
 
   display:flex;
@@ -649,13 +584,14 @@ img{ max-width:100%; display:block; }
   backdrop-filter: blur(10px);
   cursor:pointer;
 }
+
 .comboFloat:hover{
-  transform: translateX(-50%) translateY(-2px); /* ✅ no rompe el centrado */
+  transform: translateY(-2px);
 }
-.comboFloat strong{ font-weight:950; }
+.comboFloat strong{font-weight:950}
 
 /* =========================
-   MODALS
+   MODAL COMBO
 ========================= */
 .modal{
   position:fixed;
@@ -666,17 +602,14 @@ img{ max-width:100%; display:block; }
   background: rgba(0,0,0,.55);
   backdrop-filter: blur(8px);
 }
-.modal.open{ display:grid; }
+.modal.open{display:grid;}
 
 .modalCard{
   width: min(520px, 92vw);
-  max-height: 90vh;
-  display:flex;
-  flex-direction:column;
   border-radius: 22px;
   background: rgba(20,20,20,.86);
-  border: 1px solid rgba(255,0,15,.30);
-  box-shadow: var(--shadow), 0 0 18px rgba(255,0,15,.18);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: var(--shadow);
   overflow:hidden;
 }
 
@@ -705,21 +638,19 @@ img{ max-width:100%; display:block; }
 
 .modalBody{
   padding: 16px 18px 18px;
-  overflow-y:auto;
 }
-
-.modalBody::-webkit-scrollbar { width: 6px; }
-.modalBody::-webkit-scrollbar-thumb { background: #ff000f; border-radius: 10px; }
-.modalBody::-webkit-scrollbar-track { background: transparent; }
 
 .smallNote{
   text-align:center;
-  color:#fff;
+  color: #fff;
   opacity:.95;
   font-weight: 900;
   margin-bottom: 12px;
 }
-.smallNote span{ color:#ff4d4d; font-weight:950; }
+.smallNote span{
+  color:#ff4d4d;
+  font-weight: 950;
+}
 
 .comboList{
   display:flex;
@@ -738,8 +669,8 @@ img{ max-width:100%; display:block; }
   background: rgba(255,0,0,.08);
   border: 1px solid rgba(255,0,0,.22);
 }
-.comboItem .name{ font-weight: 900; }
-.comboItem .price{ opacity:.9; }
+.comboItem .name{font-weight: 900;}
+.comboItem .price{opacity:.9;}
 
 .removeBtn{
   cursor:pointer;
@@ -764,8 +695,11 @@ img{ max-width:100%; display:block; }
   margin: 6px 0;
   color: rgba(255,255,255,.75);
 }
-.row strong{ color:#fff; }
-.row .neg{ color:#37ff8b; font-weight:950; }
+.row strong{color:#fff}
+.row .neg{
+  color:#37ff8b;
+  font-weight: 950;
+}
 
 .bigTotal{
   display:flex;
@@ -789,18 +723,14 @@ img{ max-width:100%; display:block; }
   background: rgba(0,0,0,.40);
   border: 1px solid rgba(255,255,255,.12);
 }
-.provider select,
-#providerSelectSingle{
+.provider select{
   width: 180px;
   background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.30);
+  border: 1px solid rgba(255,255,255,.12);
   color:#fff;
   border-radius: 10px;
   padding: 10px 10px;
   outline:none;
-}
-#providerSelectSingle:focus{
-  box-shadow: 0 0 18px rgba(255,0,15,.18);
 }
 
 .whBtn{
@@ -814,58 +744,205 @@ img{ max-width:100%; display:block; }
   color:#fff;
   background: #ff000f;
 }
-.whBtn:hover{ filter: brightness(1.05); }
+.whBtn:hover{
+  filter: brightness(1.05);
+}
 
 /* =========================
-   CUPÓN (MODAL PROVEEDOR)
+   RESPONSIVE TWEAKS
 ========================= */
-.promoBlock{
-  margin-top: 14px;
-  padding: 12px 12px;
-  border-radius: 14px;
-  background: rgba(0,0,0,.40);
-  border: 1px solid rgba(255,0,15,.22);
+@media (max-width: 520px){
+  .topbar{
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 20px;
+  }
 }
 
-.promoLabel{
-  font-weight: 900;
-  color: rgba(255,255,255,.92);
-  margin-bottom: 10px;
-}
 
-.promoRow{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
 
-.promoInput{
-  flex:1;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.30);
+.detailsBtn{
+  margin: 14px 0 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
   color:#fff;
-  border-radius: 12px;
-  padding: 10px 12px;
-  outline:none;
-  text-transform: uppercase;
+  opacity:.9;
+  font-weight:800;
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
+.detailsBtn:hover{opacity:1}
 
-.promoBtn{
-  cursor:pointer;
+.buyNowBtn{
+  margin-top:12px;
+  width:100%;
   border:none;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-weight: 950;
+  padding:12px;
+  border-radius:14px;
+  font-weight:900;
+  cursor:pointer;
+
+  background:#25D366;
   color:#fff;
-  background: rgba(255,0,15,.95);
+
+  transition:.2s ease;
 }
 
-.promoMsg{
-  margin-top: 8px;
-  font-size: 13px;
-  font-weight: 800;
-  color: rgba(255,255,255,.85);
+.buyNowBtn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
+.buyNowBtn.disabled{
+  background: #555 !important;
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+.buyNowBtn.disabled:hover{
+  transform: none;
+  filter: none;
+}
+
+.modalCard{
+  width: min(520px, 92vw);
+  max-height: 90vh;           /* 🔥 limita altura */
+  display: flex;
+  flex-direction: column;     /* necesario para scroll interno */
+  border-radius: 22px;
+  background: rgba(20,20,20,.86);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.modalBody{
+  padding: 16px 18px 18px;
+  overflow-y: auto;           /* 🔥 activa scroll */
+}
+
+.modalBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+  background: #ff000f;
+  border-radius: 10px;
+}
+
+.modalBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* ======= EFECTO NEON GLOBAL ======= */
+.pCard, .catCard, .modalCard{
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.55),
+    0 0 18px rgba(55,255,139,.12);
+  border-color: rgba(55,255,139,.18);
+}
+
+.pPrice{
+  text-shadow:
+    0 0 10px var(--accent),
+    0 0 20px rgba(55,255,139,.25);
+}
+
+.buyNowBtn{
+  box-shadow: 0 0 18px rgba(37, 211, 102, .35);
+}
+
+.comboBtn, .planSelect, .searchWrap, .pill{
+  box-shadow: 0 0 14px rgba(55,255,139,.12);
+  border-color: rgba(55,255,139,.22);
+}
+
+.backBtn{
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  z-index: 60;
+}
+
+
+
+/* SELECT (CON PIN / SIN PIN) estilo neon suave */
+.planSelect{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(55,255,139,.25);
+  color: rgba(233,255,242,.92);
+
+  border-radius: 14px;
+  padding: 8px 36px 8px 12px;   /* espacio derecha por flecha */
+  outline: none;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px rgba(55,255,139,.12);
+
+  transition: .2s ease;
+}
+
+/* Hover + Focus */
+.planSelect:hover{
+  border-color: rgba(55,255,139,.40);
+  box-shadow: 0 0 14px rgba(55,255,139,.18);
+}
+.planSelect:focus{
+  border-color: rgba(55,255,139,.60);
+  box-shadow:
+    0 0 0 3px rgba(55,255,139,.15),
+    0 0 18px rgba(55,255,139,.22);
+}
+
+/* Flechita personalizada (no siempre aplica en todos los navegadores) */
+.pTop{
+  position: relative;
+}
+.pTop .planSelect{
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(55,255,139,.9) 50%),
+    linear-gradient(135deg, rgba(55,255,139,.9) 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%,
+    100% 0;
+  background-size:
+    6px 6px,
+    6px 6px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+/* Opciones del dropdown (solo funciona bien en algunos navegadores) */
+.planSelect option{
+  background: #0a0f0c;
+  color: rgba(233,255,242,.95);
+}
+/* Modal: modal proveedor (usa el mismo tema) */
+#providerSelectSingle{
+  width: 180px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(55,255,139,.25);
+  color:#fff;
+  border-radius: 10px;
+  padding: 10px 10px;
+  outline:none;
+}
+
+#providerSelectSingle:focus{
+  box-shadow: 0 0 18px rgba(55,255,139,.18);
+}
+
+
 
 /* =========================
    HOME EXTRAS (BENEFICIOS + FAQ)
@@ -876,6 +953,7 @@ img{ max-width:100%; display:block; }
   gap: 28px;
 }
 
+/* ---- BENEFICIOS ---- */
 .benefitsGrid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -888,8 +966,8 @@ img{ max-width:100%; display:block; }
 .benefitCard{
   border-radius: 18px;
   padding: 22px 18px;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,0,15,.22);
+  background: rgba(0,0,0,.35);              /* oscuro transparente */
+  border: 1px solid rgba(55,255,139,.20);   /* neon suave */
   box-shadow: 0 18px 60px rgba(0,0,0,.45);
   backdrop-filter: blur(10px);
   text-align:center;
@@ -897,35 +975,39 @@ img{ max-width:100%; display:block; }
 }
 .benefitCard:hover{
   transform: translateY(-2px);
-  box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 22px rgba(255,0,15,.12);
+  box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 22px rgba(55,255,139,.12);
 }
 
 .benefitIcon{
   font-size: 26px;
   margin-bottom: 10px;
-  filter: drop-shadow(0 0 10px rgba(255,0,15,.18));
+  filter: drop-shadow(0 0 10px rgba(55,255,139,.18));
 }
 
 .benefitCard h3{
   margin: 0;
   font-size: 18px;
   font-weight: 950;
-  color: rgba(255,255,255,.92);
+  color: rgba(233,255,242,.92);
+  text-shadow: 0 0 10px rgba(55,255,139,.08);
 }
 .benefitCard p{
   margin: 10px 0 0;
-  color: rgba(255,255,255,.75);
+  color: rgba(185,214,194,.85);
   line-height: 1.45;
 }
 
-.faqWrap{ margin-top: 6px; }
+/* ---- FAQ ---- */
+.faqWrap{
+  margin-top: 6px;
+}
 
 .faqTitle{
   margin: 0 0 16px;
   text-align:center;
   font-weight: 950;
   letter-spacing: 1px;
-  color: rgba(255, 230, 120, .92);
+  color: rgba(255, 230, 120, .92); /* tipo dorado suave */
   text-shadow: 0 0 14px rgba(255, 230, 120, .10);
 }
 .faqTitle span{
@@ -954,7 +1036,7 @@ img{ max-width:100%; display:block; }
   width:100%;
   border:none;
   background: transparent;
-  color: rgba(255,255,255,.92);
+  color: rgba(233,255,242,.92);
   text-align:left;
   padding: 16px 16px;
   cursor:pointer;
@@ -979,14 +1061,17 @@ img{ max-width:100%; display:block; }
 .faqA{
   display:none;
   padding: 0 16px 16px;
-  color: rgba(255,255,255,.75);
+  color: rgba(185,214,194,.85);
   line-height: 1.5;
 }
+
 .faqItem.open{
   border-color: rgba(255, 230, 120, .22);
   box-shadow: 0 14px 55px rgba(0,0,0,.55), 0 0 22px rgba(255,230,120,.08);
 }
-.faqItem.open .faqA{ display:block; }
+.faqItem.open .faqA{
+  display:block;
+}
 
 .payPill{
   margin: 18px auto 0;
@@ -1002,7 +1087,7 @@ img{ max-width:100%; display:block; }
   background: rgba(0,0,0,.35);
   border: 1px solid rgba(255, 230, 120, .18);
   box-shadow: 0 14px 50px rgba(0,0,0,.45);
-  color: rgba(255,255,255,.90);
+  color: rgba(233,255,242,.90);
   backdrop-filter: blur(10px);
 }
 .payPill strong{
@@ -1010,14 +1095,163 @@ img{ max-width:100%; display:block; }
   text-shadow: 0 0 12px rgba(255,230,120,.10);
 }
 
-/* =========================
-   FIX MOBILE (Android WebView / WhatsApp)
-========================= */
-@media (max-width: 768px){
-  body{ background-attachment: scroll; }
-  .gridGlow{ mix-blend-mode: normal; opacity: .18; }
+.logo img,
+.heroImg{
+  width:100%;
+  height:100%;
+  object-fit:cover;   /* llena el círculo */
+  object-position:center;
+  display:block;
 }
 
+
+.pill,
+.moneyPill,
+.comboFloat,
+.sectionTop .pill {
+  color: #ffffff !important;
+}
+:root{
+  --green: #ff0015;
+  --green2:#b3000f;
+  --accent:#ff0015;
+  --accent2:#b3000f;
+}
+
+/* reemplaza bordes/sombras verdes por rojo */
+.pCard, .catCard, .modalCard{
+  box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 18px rgba(255,0,15,.18) !important;
+  border-color: rgba(255,0,15,.30) !important;
+}
+
+.comboBtn, .planSelect, .searchWrap, .pill{
+  box-shadow: 0 0 14px rgba(255,0,15,.18) !important;
+  border-color: rgba(255,0,15,.30) !important;
+}
+
+/* lineas y detalles */
+.divider{
+  background: linear-gradient(90deg, transparent, #ff0015, transparent) !important;
+  box-shadow: 0 0 18px rgba(255,0,15,.25) !important;
+}
+
+/* lo que era verde “ok” */
+.badge.ok{ color:#37ff8b !important; } /* con stock verde */
+.row .neg{ color:#37ff8b !important; } /* descuento verde */
+
+/* FIX MOBILE (WhatsApp / Android WebView) */
+@media (max-width: 768px){
+  body{
+    background-attachment: scroll; /* evita bug del fixed en móvil */
+  }
+
+  .gridGlow{
+    mix-blend-mode: normal;  /* quita screen (causa el gris) */
+    opacity: .18;            /* baja intensidad */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   CUPÓN / PROMOCIONES (MODALES)
+========================= */
+.promoBlock{
+  margin-top: 14px;
+  padding: 12px 12px;
+  border-radius: 14px;
+
+  background: rgba(0,0,0,.40);
+  border: 1px solid rgba(255,0,15,.22);
+  box-shadow: 0 14px 50px rgba(0,0,0,.35);
+}
+
+.promoLabel{
+  font-weight: 950;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 10px;
+  letter-spacing: .2px;
+}
+
+.promoRow{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.promoInput{
+  flex:1;
+  background: rgba(0,0,0,.40);
+  border: 1px solid rgba(255,0,15,.28);
+  color: #fff;
+
+  border-radius: 12px;
+  padding: 12px 12px;
+  outline: none;
+
+  box-shadow: 0 0 14px rgba(255,0,15,.12);
+}
+
+.promoInput::placeholder{
+  color: rgba(255,255,255,.55);
+}
+
+.promoInput:focus{
+  border-color: rgba(255,0,15,.55);
+  box-shadow:
+    0 0 0 3px rgba(255,0,15,.14),
+    0 0 18px rgba(255,0,15,.22);
+}
+
+.promoBtn{
+  cursor:pointer;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  font-weight: 950;
+  color: #fff;
+  background: rgba(255,0,15,.95);
+  border: 1px solid rgba(255,255,255,.14);
+
+  box-shadow: 0 0 18px rgba(255,0,15,.22);
+  transition: .2s ease;
+  white-space: nowrap;
+}
+
+.promoBtn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.promoMsg{
+  margin-top: 10px;
+  font-weight: 850;
+  font-size: 13px;
+  line-height: 1.35;
+  color: rgba(255,255,255,.86);
+}
+
+/* Mensaje "ok" y "error" si luego quieres pintarlo con clases */
+.promoMsg.ok{ color: #37ff8b; }
+.promoMsg.err{ color: #ff4d4d; }
+
+/* responsive: que no se rompa en móvil */
 @media (max-width: 520px){
-  .topbar{ position: relative; }
+  .promoRow{ flex-direction: column; }
+  .promoBtn{ width: 100%; }
 }
